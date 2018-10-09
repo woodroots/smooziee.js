@@ -7,11 +7,11 @@
  */
 
 (function (factory) {
- if (typeof module === "object" && typeof module.exports === "object") {
-   module.exports = factory(require("jquery"), window, document);
- } else {
-   factory(jQuery, window, document);
- }
+  if (typeof module === "object" && typeof module.exports === "object") {
+    module.exports = factory(require("jquery"), window, document);
+  } else {
+    factory(jQuery, window, document);
+  }
 }(function($, window, document, undefined){
 
   'use srtict';
@@ -175,7 +175,9 @@
 
     // オプション値が有効 かつURLに scroll__id=xxx があればスクロール
     if(options.otherPageScroll && scrollVal !== ''){
-      scroll(scrollVal);
+      $(window).on('load',function(){
+        scroll(scrollVal);
+      });
     }
 
     return this;

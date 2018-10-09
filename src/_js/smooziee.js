@@ -175,7 +175,9 @@
 
     // オプション値が有効 かつURLに scroll__id=xxx があればスクロール
     if(options.otherPageScroll && scrollVal !== ''){
-      scroll(scrollVal);
+      $(window).on('load',function(){
+        scroll(scrollVal);
+      });
     }
 
     return this;

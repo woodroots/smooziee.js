@@ -50,7 +50,7 @@
       if(target.length !== 0){
 
         var position = target.offset().top + options.offset;
-        if($(options.header).length){
+        if($(options.header).length && $(options.header).css('position') == 'fixed'){
 	        var position = position + $(options.header).outerHeight();
         }
 

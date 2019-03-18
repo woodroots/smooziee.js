@@ -20,12 +20,13 @@
 
     options = $.extend({
       ignore: '.no-scroll', // Ignore a tag of this class
-      offset: -24, // Scroll target point offset
+      offset: 0, // Scroll target point offset
       otherPageScroll: true, // Scroll through links to other pages
       scrollKey: 'scroll_id', // The key used for scrolling
       speed: 1000, // Scroll speed
       urlHistory: 'replace', // replace or push
-      urlParam: 'hash' // hash or none or default
+      urlParam: 'hash', // hash or none or default
+      header: '' //固定ヘッダーの場合のずらす
     }, options);
 
     var scrollVal = '';
@@ -49,6 +50,9 @@
       if(target.length !== 0){
 
         var position = target.offset().top + options.offset;
+        if($(options.header).length){
+	        var position = position + $(options.header).outerHeight();
+        }
 
         $('html, body').animate({
           scrollTop: position
